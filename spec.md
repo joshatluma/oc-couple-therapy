@@ -6,13 +6,15 @@
 |-------|-------|
 | **Business Name** | OC Couple and Family Therapy |
 | **Therapist** | Kerreen M. Chau, LMFT |
-| **Established** | 2001 |
-| **Primary Location** | 101 S El Camino Real, Suite 106, San Clemente, CA 92672 |
+| **Established** | 2001 (23+ years) |
+| **Location** | 101 S El Camino Real, Suite 106, San Clemente, CA 92672 |
 | **Phone** | (949) 769-0153 |
-| **Email** | occoupletherapy@aol.com |
-| **Hours** | Monday–Friday (Closed weekends) |
+| **Email** | occoupletherapy@gmail.com |
+| **Hours** | By Appointment Only (Mon-Fri) |
 | **Social** | Facebook, Instagram (@occoupleandfamilytherapy) |
 | **Psychology Today** | [Profile](https://www.psychologytoday.com/us/therapists/kerreen-m-chau-san-clemente-ca/62009) |
+| **Telehealth** | Available for California residents |
+| **HIPAA** | Fully compliant |
 
 ---
 
@@ -21,21 +23,22 @@
 ### Couples Therapy
 - **Package:** 5 sessions for $950
 - Focus: Communication patterns, emotional regulation, connection skills
+- **Pricing displayed:** Yes
 
 ### Pre-Marital Counseling
 - **Package:** 6 sessions for $1,050
-- Includes: Communication styles, intimacy, expectations, homework, role-play exercises
+- Includes: Communication styles, intimacy, expectations, homework, role-play
+- **Pricing displayed:** Yes
 
 ### Teenage Therapy
 - **Program:** 28-day outpatient therapeutic program
 - Includes: Individual therapy, family therapy, daily check-ins
 - Issues: Anxiety, mood, school problems, substance use, self-harm, family conflict
+- **Pricing displayed:** No (varies by case - contact to discuss)
 
 ### Individual Therapy
 - Life transitions, anxiety, grief, divorce recovery, career changes, empty nesting
-
-### Telehealth
-- Virtual sessions available
+- **Pricing displayed:** Contact for rates
 
 ### Insurance
 - **In-Network:** Blue Shield
@@ -47,318 +50,591 @@
 
 ## Design System
 
-### Color Palette (Preserved from Current Site)
+### Color Palette
+
+Derived from current site with refinements for conversion optimization.
+
 | Name | Hex | Usage |
 |------|-----|-------|
-| **Primary** | `#4A6741` | Headings, buttons, accents (sage/forest green - calming, therapeutic) |
-| **Secondary** | `#8B7355` | Warm accent, links (earthy brown) |
-| **Neutral Dark** | `#2C3E50` | Body text |
-| **Neutral Light** | `#F8F6F3` | Background (warm off-white) |
-| **White** | `#FFFFFF` | Cards, sections |
-| **Accent** | `#D4A574` | CTAs, highlights (warm gold) |
+| **Primary** | `#4A6741` | Headers, nav, trust elements (sage green - calming, therapeutic) |
+| **Primary Dark** | `#3A5233` | Hover states, emphasis |
+| **Secondary** | `#8B7355` | Body accents, links (warm earthy brown) |
+| **CTA Gold** | `#C4956A` | Primary buttons, CTAs (warm gold - action-oriented) |
+| **CTA Hover** | `#B38559` | Button hover states |
+| **Neutral Dark** | `#2C3E50` | Body text, headings |
+| **Neutral Medium** | `#5A6A7A` | Secondary text, captions |
+| **Background** | `#FAF8F5` | Page background (warm off-white) |
+| **Surface** | `#FFFFFF` | Cards, sections |
+| **Border** | `#E8E4DE` | Subtle dividers |
 
 ### Typography
-| Element | Font | Weight | Size |
-|---------|------|--------|------|
-| **Headings** | Playfair Display | 600-700 | 32-48px |
-| **Subheadings** | Lora | 500 | 20-24px |
-| **Body** | Inter or Source Sans Pro | 400 | 16-18px |
-| **Buttons** | Inter | 600 | 14-16px |
 
-### Design Principles
-- **Warm & Approachable:** Soft shadows, rounded corners (8-12px), generous whitespace
-- **Trust-Building:** Professional photography, credentials prominently displayed
-- **Calming:** Muted color palette, smooth transitions, no harsh contrasts
-- **Accessible:** WCAG AA compliant, 16px+ body text, clear hierarchy
+| Element | Font | Weight | Size | Line Height |
+|---------|------|--------|------|-------------|
+| **H1 Hero** | Playfair Display | 700 | 48-56px | 1.1 |
+| **H2 Section** | Playfair Display | 600 | 32-40px | 1.2 |
+| **H3 Card** | Lora | 600 | 24-28px | 1.3 |
+| **Body** | Source Sans Pro | 400 | 18px | 1.6 |
+| **Body Small** | Source Sans Pro | 400 | 16px | 1.5 |
+| **Buttons** | Source Sans Pro | 600 | 16px | 1 |
+| **Nav** | Source Sans Pro | 500 | 15px | 1 |
+| **Caption** | Source Sans Pro | 400 | 14px | 1.4 |
+
+### Design Tokens
+
+```css
+:root {
+  /* Spacing scale */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+  --space-3xl: 64px;
+  --space-4xl: 96px;
+
+  /* Border radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+  --shadow-lg: 0 8px 24px rgba(0,0,0,0.12);
+
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
+  --transition-slow: 400ms ease;
+}
+```
+
+### Animation Guidelines
+
+**Approach:** Subtle, calming animations that enhance without overwhelming.
+
+- **Page load:** Staggered fade-in (0.4s base, 0.1s stagger)
+- **Scroll reveals:** Gentle fade-up on intersection (0.5s)
+- **Hover states:** Smooth color/shadow transitions (0.25s)
+- **Form focus:** Subtle border color change (0.15s)
+- **Mobile menu:** Slide-in from right (0.3s)
+
+**Performance:** Use CSS animations where possible. Respect `prefers-reduced-motion`.
 
 ---
 
-## New Site Architecture
+## Site Architecture
 
-### Simplified Navigation (7 pages vs 11)
+### Navigation Structure
+
 ```
-Home
-├── About Kerreen
-├── Services
-│   ├── Couples Therapy (anchor)
-│   ├── Pre-Marital Counseling (anchor)
-│   ├── Teen Therapy (anchor)
-│   └── Individual Therapy (anchor)
-├── Resources
-│   ├── Recommended Books (section)
-│   └── Blog/Articles (section)
-├── Insurance & Fees
-├── Contact
-└── Book Now (sticky CTA)
+[Logo]                    [Nav Links]                      [CTA]
+OC Couple & Family    About | Services | Resources | Insurance | Contact    Schedule a Session
 ```
 
-### Why This Structure?
-- **Reduced cognitive load:** 11 nav items → 5 main + 1 CTA
-- **Services consolidated:** One page with anchor links for better SEO juice
-- **Resources combined:** Books + Articles = authority-building content hub
-- **Forms integrated:** Into Contact page with secure upload option
-- **Clear user journey:** Learn → Trust → Book
+**Pages (5 main + 1 CTA):**
+1. Home
+2. About Kerreen
+3. Services (with anchor sections)
+4. Resources (featured article + books)
+5. Insurance & Fees
+6. Contact
+
+### User Journey Flow
+
+```
+Entry Points                    Trust Building                 Conversion
+─────────────────────────────────────────────────────────────────────────
+Google Search ──┐
+                │
+Psychology     ─┼──► Homepage ──► About/Services ──► Contact Form
+Today          │         │              │                  │
+                │         ▼              ▼                  ▼
+Referral ──────┘    Trust Signals   Pricing Info      "Thank you"
+                    • 23+ years      • Packages         inline message
+                    • LMFT           • Insurance
+                    • HIPAA          • What to expect
+```
 
 ---
 
-## Page-by-Page Breakdown
+## Page Specifications
 
 ### 1. Homepage
-**Goal:** Build trust, communicate value, drive bookings
 
-**Hero Section**
-- Full-width background: San Clemente/coastal imagery (local connection)
-- Headline: "Reconnect. Heal. Thrive."
-- Subhead: "Compassionate therapy for couples, teens & families in Orange County since 2001"
-- Primary CTA: "Book a Free Consultation" (conversion)
-- Secondary CTA: "Learn More" (scroll)
-- Trust badges: LMFT license, 23+ years experience, Telehealth available
+**Goal:** Build immediate trust, communicate expertise, drive contact form submissions.
 
-**Section 2: Services Overview**
-- 3-4 card layout (Couples | Teens | Individual | Telehealth)
-- Each card: Icon, title, 1-line description, "Learn More" link
-- Subtle hover animations
+#### Hero Section
+- **Background:** Coastal San Clemente imagery (soft, desaturated for text contrast)
+- **Headline:** "Find Your Path to Healing"
+- **Subhead:** "Compassionate therapy for couples, teens, and families in Orange County. Serving the community for over 23 years."
+- **Primary CTA:** "Schedule a Session" → scrolls to contact section or /contact
+- **Secondary CTA:** "Learn More" → scrolls to services overview
+- **Trust Strip:**
+  - "23+ Years Experience"
+  - "Licensed Marriage & Family Therapist"
+  - "HIPAA Compliant"
+  - "Telehealth Available"
 
-**Section 3: About Kerreen (Brief)**
-- Photo (warm, approachable headshot)
-- 2-3 sentence intro + credentials
-- "My approach is intergenerational—I view the individual, couple, and family as an emotional unit."
-- CTA: "Read My Full Story"
+**UX Psychology Applied:**
+- Anchoring effect: Lead with years of experience
+- Social proof: Psychology Today verification badge
+- Framing: Focus on positive outcomes ("healing", "path forward")
 
-**Section 4: Social Proof**
-- Psychology Today badge/rating
-- Years in practice counter
-- "Serving 15+ teens weekly"
-- Optional: 1-2 testimonials (if available)
+#### Services Overview Section
+**Layout:** 3-4 card grid
 
-**Section 5: FAQ Preview**
-- 3-4 common questions (expandable)
+| Card | Icon | Title | Description | Link |
+|------|------|-------|-------------|------|
+| 1 | Heart | Couples Therapy | Rebuild connection and improve communication | → Services#couples |
+| 2 | Person | Teen Therapy | Help your teen navigate challenges | → Services#teen |
+| 3 | Circle | Individual Therapy | Support through life's transitions | → Services#individual |
+| 4 | Video | Telehealth | Virtual sessions from anywhere in California | → Services#telehealth |
+
+#### About Preview Section
+- **Photo:** Kerreen's headshot (pulled from current site)
+- **Quote:** "My approach is intergenerational—I view the individual, couple, and family as an emotional unit."
+- **Brief bio:** 2-3 sentences + credentials
+- **CTA:** "Read My Full Story" → /about
+
+#### Social Proof Section
+- Psychology Today badge (prominently displayed, links to profile)
+- Stats: "23+ Years" | "Serving 15+ teens weekly" | "In-person & Telehealth"
+
+#### FAQ Preview
+3-4 expandable questions:
+- "What should I expect in the first session?"
+- "Do you accept my insurance?"
 - "How do I know if therapy is right for me?"
-- "What happens in the first session?"
-- "Do you take my insurance?"
 
-**Footer**
-- Contact info, hours, location map
-- Quick links
-- Social icons
-- "Book Now" persistent
+#### Footer
+- Contact info (phone, email, address)
+- Hours: "By Appointment"
+- Insurance logos: Blue Shield, Tri Care, Anthem
+- Social icons (Facebook, Instagram) - icons only
+- Quick nav links
+- Privacy Policy link
+- © 2025 OC Couple and Family Therapy
+
+---
 
 ### 2. About Kerreen
-**Goal:** Build deep trust and personal connection
 
-- Professional headshot + candid photo
-- Full bio with story arc (why therapy, philosophy, experience)
-- Credentials section (LMFT #xxxxx, certifications)
-- Approach/philosophy in accessible language
-- Video intro (optional, high-converting)
+**Goal:** Build deep personal connection and professional trust.
+
+#### Hero
+- Large professional headshot
+- Name: "Kerreen M. Chau, LMFT"
+- Tagline: "Licensed Marriage and Family Therapist"
+
+#### Bio Content
+- Personal story/journey to therapy
+- Philosophy and therapeutic approach
+- "Intergenerational approach" explanation in accessible language
+- Years of experience and client focus areas
+
+#### Credentials Section
+- LMFT license number
+- Education/certifications
+- Psychology Today verification
+- Affiliations
+
+#### CTA Section
+- "Ready to take the first step?"
+- Button: "Schedule a Session" → /contact
+
+---
 
 ### 3. Services (Single Page with Sections)
-**Goal:** Educate and qualify leads
 
-Each service section includes:
-- Clear problem statement ("Are you struggling with...")
-- Solution description
-- What to expect (session structure)
-- Pricing (transparent)
-- Specific CTA for that service
+**Goal:** Educate visitors, qualify leads, reduce friction to contact.
 
-**Sections:**
-1. Couples Therapy ($950/5 sessions)
-2. Pre-Marital Counseling ($1,050/6 sessions)
-3. Teen Therapy (28-day program)
-4. Individual Therapy
-5. Telehealth Options
+**Sticky Side Nav (desktop) / Jump Links (mobile):**
+- Couples Therapy
+- Pre-Marital Counseling
+- Teen Therapy
+- Individual Therapy
+- Telehealth
 
-Sticky sidebar or floating nav for easy section jumping.
+#### Section Template
+Each service section follows this structure:
+
+```
+[Section Anchor]
+
+## [Service Name]
+
+**Problem Statement**
+"Are you struggling with [specific issue]?"
+
+**Solution Description**
+How this therapy helps...
+
+**What to Expect**
+- Session structure
+- Duration
+- Approach
+
+**Pricing** (if applicable)
+Package details or "Contact for rates"
+
+[CTA Button: "Get Started" → Contact with service pre-selected]
+```
+
+#### Couples Therapy Section
+- Issues: Communication breakdown, trust, intimacy, conflict resolution
+- Package: 5 sessions for $950
+- Approach: Observing emotions to change patterns
+
+#### Pre-Marital Counseling Section
+- For: Engaged couples
+- Package: 6 sessions for $1,050
+- Includes: Communication, intimacy, expectations, homework, role-play
+
+#### Teen Therapy Section
+- Issues: Anxiety, mood, school, substance use, self-harm, family conflict
+- Program: 28-day outpatient with daily check-ins
+- **No pricing displayed** - "Contact us to discuss your family's needs"
+
+#### Individual Therapy Section
+- Issues: Life transitions, anxiety, grief, divorce recovery, career, empty nest
+- Contact for rates
+
+#### Telehealth Section
+- Available for California residents
+- Same quality as in-person
+- HIPAA-compliant platform
+- How it works
+
+---
 
 ### 4. Resources
-**Goal:** Establish authority, improve SEO, provide value
 
-**Recommended Reading**
-- Book cards with cover images, descriptions, Amazon links
-- Passionate Marriage, Resurrecting Sex, Man's Search for Meaning
+**Goal:** Establish authority, provide value, keep visitors engaged.
 
-**Articles/Blog**
-- Relationship tips, parenting advice, mental health education
-- SEO-optimized content for organic traffic
+#### Featured Article
+- Pull content from current site's "Relationship Corner" or "Published Articles"
+- Display as formatted article with author attribution
+- Title, content, date
+
+#### Recommended Books
+3 book cards with:
+- Cover image
+- Title & Author
+- Brief description
+- Amazon affiliate link (preserved)
+
+**Books:**
+1. Passionate Marriage - David Schnarch
+2. Resurrecting Sex - David Schnarch
+3. Man's Search for Meaning - Viktor E. Frankl
+
+---
 
 ### 5. Insurance & Fees
-**Goal:** Remove friction, set expectations
 
-- Clear fee breakdown
-- Insurance logos (Blue Shield, Tri Care, Anthem)
-- "What to ask your insurance" checklist
-- Payment options
-- Sliding scale or payment plans (if applicable)
-- FAQ about billing
+**Goal:** Remove friction, set clear expectations.
+
+#### Insurance Section
+- **In-Network:** Blue Shield (with logo)
+- **Certified:** Tri Care, Anthem (with logos)
+- **Accepted:** All PPO plans
+
+"I handle all insurance billing. You are responsible for any portion your carrier doesn't cover."
+
+#### What to Ask Your Insurance
+Checklist:
+- [ ] What is my mental health coverage?
+- [ ] Is out-of-network care covered?
+- [ ] How much is covered per session?
+- [ ] Is there an annual session limit?
+
+"Bring your insurance card to your first appointment."
+
+#### Pricing
+| Service | Package | Price |
+|---------|---------|-------|
+| Couples Therapy | 5 sessions | $950 |
+| Pre-Marital Counseling | 6 sessions | $1,050 |
+| Teen Therapy | Varies | Contact us |
+| Individual Therapy | Varies | Contact us |
+
+#### CTA
+"Questions about insurance or fees?"
+Button: "Contact Us"
+
+---
 
 ### 6. Contact
-**Goal:** Make booking effortless
 
-- Prominent phone number (click-to-call on mobile)
-- Contact form (Name, Email, Phone, Service Interest, Message)
-- Embedded Google Map
-- Office hours
-- Downloadable forms (Intake, Consent, CC Auth)
-- "Or book directly online" → Booking system CTA
+**Goal:** Make contacting effortless, reduce anxiety about reaching out.
 
-### 7. Book Now (Dedicated Landing)
-**Goal:** Convert warm leads
+#### Contact Form
+**Fields:**
+| Field | Type | Required | Notes |
+|-------|------|----------|-------|
+| Name | Text | Yes | Label: "Your Name" |
+| Email | Email | Yes | Label: "Email Address" |
+| Phone | Tel | No | Label: "Phone Number (optional)" |
+| Service Interest | Dropdown | Yes | Options: Couples Therapy, Pre-Marital Counseling, Teen Therapy, Individual Therapy, Telehealth, Not Sure |
+| Message | Textarea | No | Label: "How can I help you?" Placeholder: "Feel free to share what brings you here..." |
 
-- Minimal distractions
-- Embedded scheduling tool (Calendly, Acuity, or similar)
-- "What happens next" reassurance
-- Contact info as fallback
+**Submit Button:** "Send Message"
+
+**Form Confirmation:** Inline message replacing form:
+> "Thank you for reaching out. I'll be in touch within 1-2 business days."
+
+**Form Backend:** Send to occoupletherapy@gmail.com
+
+#### Contact Info
+- **Phone:** (949) 769-0153
+  - Mobile: Click-to-call
+  - Desktop: Click copies to clipboard with tooltip "Copied!"
+- **Email:** occoupletherapy@gmail.com
+- **Hours:** By Appointment Only
+
+#### Location
+- Address: 101 S El Camino Real, Suite 106, San Clemente, CA 92672
+- Interactive Google Maps embed
+- "Conveniently located off the I-5 in San Clemente"
+
+#### Social Links
+- Facebook (icon)
+- Instagram (icon)
+- Psychology Today (icon/badge)
+
+---
+
+### 7. 404 Page
+
+**Goal:** Friendly redirect, maintain trust.
+
+- Headline: "Oops! This page doesn't exist."
+- Subhead: "Let's get you back on track."
+- Links: Home | Services | Contact
+- CTA: "Schedule a Session"
+
+---
+
+### 8. Privacy Policy
+
+- Use generic privacy policy template
+- Cover: Data collection, cookies, form submissions, third-party services
+- Mention HIPAA compliance for client communications
+
+---
+
+## Mobile Experience
+
+### Always-Visible Floating CTA Bar
+
+```
+┌─────────────────────────────────────────┐
+│  📞 (949) 769-0153    [Schedule Now]   │
+└─────────────────────────────────────────┘
+```
+
+- Fixed to bottom of viewport
+- Height: 60px
+- Background: White with top shadow
+- Phone: Click-to-call
+- Button: Gold CTA → /contact
+
+### Mobile Navigation
+- Hamburger menu (right side)
+- Slide-in drawer from right
+- Full nav links + CTA button
+- Close on link click or overlay tap
+
+### Touch Targets
+- Minimum 44px × 44px for all interactive elements
+- Generous padding on form inputs
 
 ---
 
 ## Conversion Optimization
 
-### Primary CTAs
-| CTA | Placement | Color |
-|-----|-----------|-------|
-| "Book a Free Consultation" | Hero, sticky header, footer | Accent gold |
-| "Call Now" | Mobile header, contact page | Primary green |
-| "Schedule Online" | Service pages, contact | Accent gold |
+### Primary CTA Hierarchy
 
-### Trust Elements
-- [ ] LMFT license number displayed
-- [ ] "23+ Years Experience" badge
-- [ ] Psychology Today verification
-- [ ] Secure site badge (SSL)
-- [ ] HIPAA compliant badge (if applicable)
-- [ ] Local area mention (San Clemente, Orange County)
+| Priority | CTA Text | Color | Placement |
+|----------|----------|-------|-----------|
+| 1 | "Schedule a Session" | Gold | Hero, sticky header, floating bar, footer |
+| 2 | "Contact Us" | Primary Green | Service pages, insurance page |
+| 3 | "Learn More" | Text link | Secondary actions |
 
-### Friction Reduction
-- [ ] Click-to-call on all phone numbers
-- [ ] Forms pre-filled where possible
-- [ ] Clear pricing (no surprises)
-- [ ] "What to expect" content
-- [ ] Response time promise ("We respond within 24 hours")
+### Trust Elements Checklist
+- [x] LMFT credentials prominently displayed
+- [x] "23+ Years Experience" badge
+- [x] Psychology Today verification badge
+- [x] HIPAA compliance badge
+- [x] Insurance provider logos
+- [x] San Clemente/Orange County local mentions
+- [x] Professional headshot
 
-### Mobile Optimization
-- [ ] Sticky "Book Now" button on mobile
-- [ ] Collapsible navigation
-- [ ] Touch-friendly tap targets (44px+)
-- [ ] Fast loading (<3s)
-- [ ] Click-to-call prominent
+### Micro-Copy Guidelines
+
+**CTAs:**
+- ✅ "Schedule a Session" (action-oriented, not salesy)
+- ✅ "Get Started" (inviting, low pressure)
+- ✅ "Learn More" (exploratory)
+- ❌ "Book Now" (too transactional for therapy)
+- ❌ "Buy" / "Purchase" (inappropriate for healthcare)
+
+**Form Labels:**
+- Use sentence case, warm tone
+- "Your Name" not "Full Name*"
+- "How can I help you?" not "Message"
+- "Phone Number (optional)" - explicit about optional fields
+
+**Validation Messages:**
+- "Please enter your email address" not "Invalid email"
+- Inline validation, not post-submit
+
+### Phone Number Behavior
+
+| Device | Action |
+|--------|--------|
+| Mobile | `tel:` link triggers phone dialer |
+| Desktop | Click copies number to clipboard, shows "Copied!" tooltip |
 
 ---
 
 ## SEO Strategy
 
 ### Target Keywords
-**Primary:**
-- couples therapy san clemente
-- marriage counselor orange county
-- teen therapist orange county
-- family therapy san clemente
 
-**Secondary:**
+**Primary (San Clemente focus):**
+- couples therapy san clemente
+- marriage counselor san clemente
+- teen therapist san clemente
+- family therapy san clemente
 - LMFT san clemente
-- premarital counseling orange county
-- relationship therapist near me
-- adolescent therapy orange county
+
+**Secondary (Orange County + Telehealth):**
+- couples therapy orange county
+- teen therapist orange county
+- online therapy california
+- telehealth therapist california
+
+### On-Page SEO
+
+**Meta Titles:**
+- Home: "Couples & Family Therapy in San Clemente | Kerreen M. Chau, LMFT"
+- About: "About Kerreen M. Chau, LMFT | 23+ Years Experience"
+- Services: "Therapy Services | Couples, Teen, Individual | San Clemente"
+- Contact: "Contact OC Couple and Family Therapy | Schedule a Session"
+
+**Meta Descriptions:**
+- Home: "Compassionate therapy for couples, teens, and families in San Clemente, CA. Kerreen M. Chau, LMFT has 23+ years experience. Telehealth available for California."
 
 ### Technical SEO
-- [ ] Semantic HTML5 structure
-- [ ] Schema.org LocalBusiness + MedicalBusiness markup
-- [ ] Optimized meta titles/descriptions per page
-- [ ] Alt text on all images
-- [ ] Fast Core Web Vitals (LCP < 2.5s, CLS < 0.1)
-- [ ] Mobile-first responsive design
-- [ ] XML sitemap
-- [ ] robots.txt configured
-
-### Content SEO
-- [ ] Location pages (if serving multiple areas)
-- [ ] Service-specific landing pages
-- [ ] Blog with relationship/mental health content
-- [ ] FAQ schema markup
-- [ ] Internal linking strategy
+- [x] Semantic HTML5 structure
+- [x] Schema.org LocalBusiness + MedicalBusiness markup
+- [x] Optimized meta titles/descriptions
+- [x] Alt text on all images
+- [x] Core Web Vitals optimization (LCP < 2.5s)
+- [x] Mobile-first responsive
+- [x] XML sitemap
+- [x] robots.txt
 
 ### Local SEO
-- [ ] Google Business Profile optimized
-- [ ] NAP consistency (Name, Address, Phone)
-- [ ] Local citations (Yelp, Healthgrades, Psychology Today)
-- [ ] Encourage Google reviews
+- [x] Google Business Profile (verify optimized)
+- [x] NAP consistency across site
+- [x] Embedded Google Map on contact page
+- [x] Local area mentions in content
 
 ---
 
-## Business & Marketing Enhancements
+## Technical Implementation
 
-### Immediate Wins
-1. **Email Capture:** Newsletter signup for relationship tips (nurture leads)
-2. **Lead Magnet:** Free PDF guide ("5 Signs You'd Benefit from Couples Therapy")
-3. **Online Booking:** Integrate Calendly/Acuity for self-service scheduling
-4. **Chat Widget:** Consider live chat or chatbot for immediate engagement
-5. **Review Strategy:** Follow-up emails requesting Google reviews
+### Tech Stack
 
-### Analytics & Tracking
-- [ ] Google Analytics 4
-- [ ] Google Search Console
-- [ ] Call tracking (CallRail or similar)
-- [ ] Form submission tracking
-- [ ] Heatmaps (Hotjar/Microsoft Clarity)
+| Layer | Technology | Rationale |
+|-------|------------|-----------|
+| Framework | Next.js 14 (App Router) | Performance, SEO, React ecosystem |
+| Styling | Tailwind CSS | Rapid development, design tokens |
+| Hosting | Vercel | Easy deployment, edge network |
+| Forms | React Hook Form + Resend | Validation, email delivery |
+| Images | Next.js Image | Optimization, lazy loading |
+| Analytics | Google Analytics 4 | Industry standard |
+| Maps | Google Maps Embed | Interactive, familiar |
+| Fonts | Google Fonts | Playfair Display, Lora, Source Sans Pro |
 
-### Future Considerations
-- Client portal for forms and scheduling
-- Telehealth integration
-- Blog content calendar
-- Email automation sequences
-- Retargeting ads (Google, Facebook)
+### No CMS Required
+- Developer-maintained site
+- Content stored in code/markdown
+- No blog infrastructure (single featured article)
 
----
+### Performance Targets
+- LCP: < 2.5s
+- FID: < 100ms
+- CLS: < 0.1
+- Total page weight: < 500KB
+- Time to Interactive: < 3s
 
-## Tech Stack
-
-| Layer | Technology |
-|-------|------------|
-| **Framework** | Next.js 14 (App Router) |
-| **Styling** | Tailwind CSS |
-| **Hosting** | Vercel |
-| **CMS** | Contentful or Sanity (for blog/resources) |
-| **Forms** | React Hook Form + FormSpree or Resend |
-| **Booking** | Calendly embed or Acuity |
-| **Analytics** | Google Analytics 4 + Plausible |
-| **Maps** | Google Maps Embed |
+### Accessibility (WCAG AA)
+- Minimum contrast: 4.5:1 (normal text), 3:1 (large text)
+- Focus states on all interactive elements
+- Alt text on all images
+- Keyboard navigable
+- `prefers-reduced-motion` respected
+- Skip-to-main link
 
 ---
 
-## Deliverables Checklist
+## Assets Required
 
-### Phase 1: Foundation
-- [ ] Design system (colors, typography, components)
-- [ ] Homepage
-- [ ] About page
-- [ ] Contact page
-- [ ] Mobile responsive
+### From Current Site
+- [ ] Kerreen's headshot photo
+- [ ] Featured article content (scrape from Relationship Corner/Published Articles)
+- [ ] Book cover images (or use Amazon images)
 
-### Phase 2: Core Content
-- [ ] Services page (all sections)
-- [ ] Insurance & Fees page
-- [ ] Forms integration
-- [ ] Booking integration
+### Stock Images
+- [ ] Hero: San Clemente coastal/beach imagery (soft, calming)
+- [ ] Service icons or illustrations
 
-### Phase 3: Growth
-- [ ] Resources/Blog setup
-- [ ] SEO optimization
-- [ ] Analytics setup
-- [ ] Performance optimization
+### Logos/Badges
+- [ ] Blue Shield logo
+- [ ] Tri Care logo
+- [ ] Anthem logo
+- [ ] Psychology Today badge
+- [ ] HIPAA compliance badge
 
-### Phase 4: Launch
-- [ ] Content migration
-- [ ] Domain setup
-- [ ] SSL certificate
-- [ ] Redirects from old URLs
-- [ ] Testing (cross-browser, mobile)
-- [ ] Launch & monitor
+---
+
+## Launch Checklist
+
+### Pre-Launch
+- [ ] All content migrated and proofread
+- [ ] Forms tested (submit to correct email)
+- [ ] Mobile responsive on multiple devices
+- [ ] Cross-browser testing (Chrome, Safari, Firefox, Edge)
+- [ ] Accessibility audit
+- [ ] Performance audit (Lighthouse)
+- [ ] SEO audit
+- [ ] Analytics configured
+- [ ] 404 page working
+
+### Domain & Hosting
+- [ ] Vercel project set up
+- [ ] DNS configured for occoupleandfamilytherapy.com
+- [ ] SSL certificate active
+- [ ] Redirects from old Squarespace URLs (if needed)
+
+### Post-Launch
+- [ ] Google Search Console verified
+- [ ] XML sitemap submitted
+- [ ] Monitor analytics for issues
+- [ ] Test contact form in production
 
 ---
 
 ## Notes
 
-- Current site is on Squarespace – will need content export
-- Address discrepancy: Homepage shows 1401 N El Camino Real, Contact shows 101 S El Camino Real – **clarify correct address**
-- Consider professional photography session for updated headshots
-- AOL email could be updated to branded email (e.g., kerreen@occoupletherapy.com)
+- **Timeline:** ASAP
+- **Domain:** Keep existing (occoupleandfamilytherapy.com)
+- **Old Site:** Currently on Squarespace
+- **Professional Email:** Consider upgrading AOL to branded email in future
